@@ -1,5 +1,5 @@
 import SearchBar from "@/app/components/SearchBar";
-import Movie from "@/app/components/Movie";
+import MovieList from "@/app/components/MovieList";
 
 export default async function Home(props: {
   searchParams?: Promise<{
@@ -24,9 +24,7 @@ export default async function Home(props: {
       <SearchBar />
 
       {Search && Search.length > 0 ? (
-        Search.map((movie: any) => (
-          <Movie key={movie.imdbID} title={movie.Title} />
-        ))
+        <MovieList movies={Search} />
       ) : (
         <p className="text-center">No movies found.</p>
       )}
